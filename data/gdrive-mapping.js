@@ -16,19 +16,19 @@ const GDRIVE_CONFIG = {
 
 const GDRIVE_COMICS = {
   // === 0201 Star Wars Alvorecer Dos Jedi Guerra Da Forca 01 Lemuria ===
-  "0201-Star-Wars-Alvorecer-dos-Jedi-Guerra-da-Forca-01-Lemuria": "1QolOVUYHp5adjhEVcUMcO_JQF975Xs6c",
+  "star-wars-alvorecer-dos-jedi-guerra-da-forca-01.pdf": "1QolOVUYHp5adjhEVcUMcO_JQF975Xs6c",
 
   // === 0202 Star Wars Alvorecer Dos Jedi Guerra Da Forca 02 Lemuria ===
-  "0202-Star-Wars-Alvorecer-dos-Jedi-Guerra-da-Forca-02-Lemuria": "13S0Hgd9ozLq5i9LwO5_la1ap-zQ-Gel6",
+  "star-wars-alvorecer-dos-jedi-guerra-da-forca-02.pdf": "13S0Hgd9ozLq5i9LwO5_la1ap-zQ-Gel6",
 
   // === 0203 Star Wars Alvorecer Dos Jedi Guerra Da Forca 03 Lemuria ===
-  "0203-Star-Wars-Alvorecer-dos-Jedi-Guerra-da-Forca-03-Lemuria": "1mZ5n4CauNtyHgJl4MvRBU_S7dNgY-6RG",
+  "star-wars-alvorecer-dos-jedi-guerra-da-forca-03.pdf": "1mZ5n4CauNtyHgJl4MvRBU_S7dNgY-6RG",
 
   // === 0204 Star Wars Alvorecer Dos Jedi Guerra Da Forca 04 Lemuria ===
-  "0204-Star-Wars-Alvorecer-dos-Jedi-Guerra-da-Forca-04-Lemuria": "1JCBDUUNFTdFgiT0hnehEHjR_P6yhVhKn",
+  "star-wars-alvorecer-dos-jedi-guerra-da-forca-04.pdf": "1JCBDUUNFTdFgiT0hnehEHjR_P6yhVhKn",
 
   // === 0205 Star Wars Alvorecer Dos Jedi Guerra Da Forca 05 Lemuria ===
-  "0205-Star-Wars-Alvorecer-dos-Jedi-Guerra-da-Forca-05-Lemuria": "172n4DMpiZdDeniLvFihPVG_ntJf17-E5",
+  "star-wars-alvorecer-dos-jedi-guerra-da-forca-05.pdf": "172n4DMpiZdDeniLvFihPVG_ntJf17-E5",
 
   // === Star Wars   A Antiga Republica Os Sois Desaparecidos ===
   "star-wars-a-antiga-republica-os-sois-desaparecidos-01": "1w2sGLXuVQyb4rXjr4cttup4oSUNctYmB",
