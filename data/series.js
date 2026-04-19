@@ -172,6 +172,83 @@ window.SERIES_DATA = {
         "eraName": "O Alvorecer dos Jedi",
         "chronoOrder": 20
     },
+
+    "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3": {
+        "id": "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3",
+        "slug": "star-wars-alvorecer-dos-jedi-guerra-da-forca",
+        "title": "Star Wars - Alvorecer dos Jedi - Guerra da Força",
+        "comics": [
+            {
+                "id": "b1c2d3e4-f5a6-4b7c-8d9e-e0f1a2b3c4d5",
+                "title": "Star Wars - Alvorecer dos Jedi - Guerra da Força 01",
+                "slug": "star-wars-alvorecer-dos-jedi-guerra-da-forca-01",
+                "coverPath": "/comics/star-wars-alvorecer-dos-jedi-guerra-da-forca-01/cover.webp",
+                "pageCount": 25,
+                "sortOrder": 1,
+                "createdAt": "2026-04-18T00:00:00.000Z",
+                "seriesId": "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3",
+                "issueNumber": 1,
+                "currentPage": 0,
+                "seriesSlug": "star-wars-alvorecer-dos-jedi-guerra-da-forca"
+            },
+            {
+                "id": "c2d3e4f5-a6b7-4c8d-9e0f-f1a2b3c4d5e6",
+                "title": "Star Wars - Alvorecer dos Jedi - Guerra da Força 02",
+                "slug": "star-wars-alvorecer-dos-jedi-guerra-da-forca-02",
+                "coverPath": "/comics/star-wars-alvorecer-dos-jedi-guerra-da-forca-02/cover.webp",
+                "pageCount": 25,
+                "sortOrder": 2,
+                "createdAt": "2026-04-18T00:00:00.000Z",
+                "seriesId": "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3",
+                "issueNumber": 2,
+                "currentPage": 0,
+                "seriesSlug": "star-wars-alvorecer-dos-jedi-guerra-da-forca"
+            },
+            {
+                "id": "d3e4f5a6-b7c8-4d9e-0f1a-a2b3c4d5e6f7",
+                "title": "Star Wars - Alvorecer dos Jedi - Guerra da Força 03",
+                "slug": "star-wars-alvorecer-dos-jedi-guerra-da-forca-03",
+                "coverPath": "/comics/star-wars-alvorecer-dos-jedi-guerra-da-forca-03/cover.webp",
+                "pageCount": 25,
+                "sortOrder": 3,
+                "createdAt": "2026-04-18T00:00:00.000Z",
+                "seriesId": "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3",
+                "issueNumber": 3,
+                "currentPage": 0,
+                "seriesSlug": "star-wars-alvorecer-dos-jedi-guerra-da-forca"
+            },
+            {
+                "id": "e4f5a6b7-c8d9-4e0f-1a2b-b3c4d5e6f7a8",
+                "title": "Star Wars - Alvorecer dos Jedi - Guerra da Força 04",
+                "slug": "star-wars-alvorecer-dos-jedi-guerra-da-forca-04",
+                "coverPath": "/comics/star-wars-alvorecer-dos-jedi-guerra-da-forca-04/cover.webp",
+                "pageCount": 25,
+                "sortOrder": 4,
+                "createdAt": "2026-04-18T00:00:00.000Z",
+                "seriesId": "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3",
+                "issueNumber": 4,
+                "currentPage": 0,
+                "seriesSlug": "star-wars-alvorecer-dos-jedi-guerra-da-forca"
+            },
+            {
+                "id": "f5a6b7c8-d9e0-4f1a-2b3c-c4d5e6f7a8b9",
+                "title": "Star Wars - Alvorecer dos Jedi - Guerra da Força 05",
+                "slug": "star-wars-alvorecer-dos-jedi-guerra-da-forca-05",
+                "coverPath": "/comics/star-wars-alvorecer-dos-jedi-guerra-da-forca-05/cover.webp",
+                "pageCount": 25,
+                "sortOrder": 5,
+                "createdAt": "2026-04-18T00:00:00.000Z",
+                "seriesId": "a0c1b2d3-e4f5-4a5b-8c9d-d8e9f0a1b2c3",
+                "issueNumber": 5,
+                "currentPage": 0,
+                "seriesSlug": "star-wars-alvorecer-dos-jedi-guerra-da-forca"
+            }
+        ],
+        "eraId": 1,
+        "eraName": "O Alvorecer dos Jedi",
+        "chronoOrder": 30
+    },
+
     "79c02f45-6734-4782-99e9-299a1208974b": {
         "id": "79c02f45-6734-4782-99e9-299a1208974b",
         "slug": "star-wars-contos-dos-jedi-a-era-de-ouro-dos-sith",
