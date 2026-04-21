@@ -8,27 +8,27 @@ const ctx = canvas.getContext('2d', { alpha: false }); // Otimização: Desabili
 
 let width, height, centerX, centerY;
 let stars = [];
-const STAR_COUNT = 200; // Reduzido drasticamente para poupar CPU/GPU
-let speed = 20; 
+const STAR_COUNT = 50; // Reduzido drasticamente para poupar CPU/GPU
+let speed = 15;
 
 // Fator de escala: O segredo para performance. 
 // O canvas desenha em 50% da resolução e o CSS estica.
-const RESOLUTION_SCALE = 0.5; 
+const RESOLUTION_SCALE = 0.4;
 
 function initCanvas() {
     const displayWidth = window.innerWidth;
     const displayHeight = window.innerHeight;
-    
+
     width = Math.floor(displayWidth * RESOLUTION_SCALE);
     height = Math.floor(displayHeight * RESOLUTION_SCALE);
-    
+
     canvas.width = width;
     canvas.height = height;
-    
+
     // CSS faz o upscale suave
     canvas.style.width = displayWidth + 'px';
     canvas.style.height = displayHeight + 'px';
-    
+
     centerX = width / 2;
     centerY = height / 2;
 }
@@ -65,8 +65,8 @@ class Star {
         const py = (this.y / this.pz) * (height / 2) + centerY;
 
         ctx.strokeStyle = this.color;
-        ctx.lineWidth = 1; 
-        
+        ctx.lineWidth = 1;
+
         ctx.beginPath();
         ctx.moveTo(px, py);
         ctx.lineTo(sx, sy);
