@@ -1,6 +1,7 @@
 // app.js - Versão Completa e Corrigida (Capas + Leitor PDF)
 
 const app = document.getElementById('app');
+app.classList.add('animate-fade');
 
 // Dados dos Livros (Pasta: book-covers/)
 const BOOKS_DATA = [
@@ -61,7 +62,7 @@ function renderHome() {
     let cardsHTML = era.items.map(item => {
       if (item.viewType === 'book') {
         return `
-              <a class="card book-card" href="#readbook/${item.slug}" data-title="${item.title.toLowerCase()}">
+              <a class="card book-card animate-up" href="#readbook/${item.slug}" data-title="${item.title.toLowerCase()}">
                 <div class="cover"><img src="book-covers/${item.cover}" loading="lazy" onerror="this.src='covers/placeholder.webp';"></div>
                 <div class="card-info"><div class="card-title">${item.title}</div><div class="card-meta">📖 Romance</div></div>
               </a>`;
@@ -69,7 +70,7 @@ function renderHome() {
         const firstComic = item.comics.sort((a, b) => a.sortOrder - b.sortOrder)[0];
         const coverUrl = firstComic ? `covers/${firstComic.slug}.webp` : 'covers/placeholder.webp';
         return `
-              <a class="card serie-card" href="#series/${item.slug}" data-title="${item.title.toLowerCase()}">
+              <a class="card serie-card animate-up" href="#series/${item.slug}" data-title="${item.title.toLowerCase()}">
                 <div class="cover"><img src="${coverUrl}" loading="lazy" onerror="this.src='covers/placeholder.webp';"></div>
                 <div class="card-info"><div class="card-title">${item.title}</div><div class="card-meta">${item.comics.length} edições</div></div>
               </a>`;
@@ -79,12 +80,12 @@ function renderHome() {
   }).join('');
 
   app.innerHTML = `
-    <header><div class="brand" onclick="window.location.hash='#home'"><h1>HQ Star Wars</h1><span>Acervo Master</span></div>
+    <header class="animate-fade"><div class="brand" onclick="window.location.hash='#home'"><h1>HQ Star Wars</h1><span>Acervo Master</span></div>
     <div class="search-container">
       <button class="search-icon" onclick="toggleSearch()">${searchIconSvg}</button>
       <input type="text" id="searchInput" class="search-input" placeholder="Buscar..." oninput="filterSeries(this.value)">
     </div></header>
-    <main><div id="chrono-container">${erasHTML}</div><div id="noResults" class="no-res" style="display:none">Nenhum resultado.</div></main>`;
+    <main><div id="chrono-container" class="animate-fade">${erasHTML}</div><div id="noResults" class="no-res" style="display:none">Nenhum resultado.</div></main>`;
 }
 
 function renderSeries(slug) {
@@ -95,10 +96,11 @@ function renderSeries(slug) {
   app.innerHTML = `
     <header><div class="brand" onclick="window.location.hash='#home'"><h1>HQ Star Wars</h1><span>Acervo Master</span></div></header>
     <main>
-      <div class="view-header"><a href="#home" class="btn-back">&#8592;</a><h2 style="color:var(--text-primary)">${serie.title}</h2></div>
+      <div class="view-header"><a href="#home" class="btn-back"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+<h2 style="color:var(--text-primary)">${serie.title}</h2></div>
       <div class="grid">
         ${comics.map(c => `
-          <a class="card" href="#read/${serie.slug}/${c.slug}">
+          <a class="card animate-up" href="#read/${serie.slug}/${c.slug}">
             <div class="cover"><img src="covers/${c.slug}.webp" loading="lazy" onerror="this.src='covers/placeholder.webp';"></div>
             <div class="card-info"><div class="card-title">${c.title}</div></div>
           </a>`).join('')}
@@ -113,27 +115,40 @@ function renderSeries(slug) {
 
 function mountGDriveReader(fileId, displayName, backUrl, downloadUrl) {
   app.innerHTML = `
-    <div id="reader-container">
+    <div id="reader-container" class="animate-fade">
       <div class="reader-toolbar" id="toolbar">
-        <a href="${backUrl}" class="btn-back">&#8592;</a>
+        <a href="${backUrl}" class="btn-back"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
         <div class="reader-title">${displayName}</div>
         <div class="reader-controls">
-          <a href="${downloadUrl}" target="_blank" class="reader-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
+          <a href="${getGDriveViewerUrl(fileId)}" target="_blank" class="reader-btn" title="Abrir em Nova Aba">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+          <a href="${downloadUrl}" target="_blank" class="reader-btn" title="Download">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
         </div>
       </div>
       <div class="gdrive-frame-container"><iframe src="${getGDriveViewerUrl(fileId)}" allow="autoplay; fullscreen" class="gdrive-iframe"></iframe></div>
     </div>`;
+  
+  // Toggle toolbar on click (though iframe might block this)
+  document.getElementById('reader-container').addEventListener('click', () => {
+    document.getElementById('toolbar').classList.toggle('hidden');
+  });
 }
 
 function mountPDFCanvas(pdfUrl, backUrl, displayName, hasNextCb) {
   app.innerHTML = `
-    <div id="reader-container">
+    <div id="reader-container" class="animate-fade">
       <div class="reader-toolbar" id="toolbar">
-        <a href="${backUrl}" class="btn-back">&#8592;</a>
+        <a href="${backUrl}" class="btn-back"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
         <div class="reader-title">${displayName}</div>
         <div class="reader-controls">
-          <button class="reader-btn" id="zoom_out">-</button>
-          <button class="reader-btn" id="zoom_in">+</button>
+          <button class="reader-btn" id="zoom_out" title="Diminuir Zoom">−</button>
+          <button class="reader-btn" id="zoom_in" title="Aumentar Zoom">+</button>
+          <a href="${pdfUrl}" target="_blank" class="reader-btn" title="Abrir em Nova Aba">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
         </div>
       </div>
       <div class="reader-canvas-container" id="canvas_container">
@@ -167,20 +182,79 @@ function mountPDFCanvas(pdfUrl, backUrl, displayName, hasNextCb) {
     pageNum++; queueRenderPage(pageNum);
   }
 
-  // Navegação
-  document.getElementById('zoom_in').addEventListener('click', () => { scale += 0.2; renderPage(pageNum); });
-  document.getElementById('zoom_out').addEventListener('click', () => { scale = Math.max(0.5, scale - 0.2); renderPage(pageNum); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') onNext();
-    if (e.key === 'ArrowLeft') onPrev();
-  });
+  // --- Touch & Interaction Logic ---
+  let lastTouchEnd = 0, initialPinchDistance = null, initialScale = 1;
+  const toolbar = document.getElementById('toolbar');
+  const toggleToolbar = () => toolbar.classList.toggle('hidden');
+
+  // Gestão de Cliques e Taps
+  canvas.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) { // Double Tap
+      scale = 1.2; 
+      canvas.style.transform = `scale(1)`;
+      renderPage(pageNum);
+      e.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, false);
 
   canvas.addEventListener('click', (e) => {
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    if (x > rect.width * 0.7) onNext();
-    else if (x < rect.width * 0.3) onPrev();
+    const relativeX = (e.clientX - rect.left) / rect.width;
+    
+    if (relativeX > 0.75) onNext();
+    else if (relativeX < 0.25) onPrev();
+    else toggleToolbar();
   });
+
+  // Pinch to Zoom (High Performance with CSS)
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      initialPinchDistance = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+      initialScale = scale;
+    }
+  }, { passive: true });
+
+  canvas.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2 && initialPinchDistance) {
+      e.preventDefault();
+      const dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+      const delta = dist / initialPinchDistance;
+      const newScale = Math.min(Math.max(0.5, initialScale * delta), 4);
+      
+      // Feedback visual instantâneo via CSS
+      const visualDelta = newScale / initialScale;
+      canvas.style.transform = `scale(${visualDelta})`;
+      scale = newScale;
+    }
+  }, { passive: false });
+
+  canvas.addEventListener('touchend', (e) => {
+    if (initialPinchDistance !== null) {
+      initialPinchDistance = null;
+      // Re-renderiza em alta qualidade após o pinch terminar
+      canvas.style.transform = `scale(1)`;
+      renderPage(pageNum);
+    }
+  });
+
+  // Botões de Zoom
+  document.getElementById('zoom_in').addEventListener('click', (e) => { 
+    e.stopPropagation(); scale += 0.3; renderPage(pageNum); 
+  });
+  document.getElementById('zoom_out').addEventListener('click', (e) => { 
+    e.stopPropagation(); scale = Math.max(0.5, scale - 0.3); renderPage(pageNum); 
+  });
+
+  // Teclado
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') onNext();
+    if (e.key === 'ArrowLeft') onPrev();
+    if (e.key === 'Escape') toggleToolbar();
+  });
+
+  // --- End of Interaction Logic ---
 
   pdfjsLib.getDocument(pdfUrl).promise.then(doc => {
     pdfDoc = doc; document.getElementById('page_count').textContent = doc.numPages; renderPage(pageNum);
